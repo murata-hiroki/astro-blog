@@ -1,0 +1,20 @@
+---
+const { src, alt, iconName, href } = Astro.props;
+---
+
+<a href={href} class="link-icon">
+  <img src={src} alt={alt} class="icon-image" />
+  {iconName}
+</a>
+
+<style>
+  .link-icon {
+    display: flex;
+    flex-direction: column;
+    padding: 15px 20px;
+    align-items: center;
+  }
+  .icon-image {
+    width: 30px;
+  }
+</style>

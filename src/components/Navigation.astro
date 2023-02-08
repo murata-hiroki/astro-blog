@@ -1,6 +1,43 @@
-<div class="nav-links">
-  <a href="/">Home</a>
-  <a href="/about">About</a>
-  <a href="/blog">Blog</a>
-  <a href="/tags">Tags</a>
+---
+import homeSvg from "../img/home.svg";
+import aboutSvg from "../img/about.svg";
+import blogSvg from "../img/blog.svg";
+import lockSvg from "../img/lock.svg";
+import Icon from "./IconLink.astro";
+---
+
+<div>
+  <nav class="nav-links">
+    <ul class="ul-links">
+      <li>
+        <Icon href={"/"} src={homeSvg} alt="Home Icon" iconName="Home" />
+      </li>
+      <li>
+        <Icon href={"/about"} src={aboutSvg} alt="Home Icon" iconName="About" />
+      </li>
+      <li>
+        <Icon href={"/blog"} src={blogSvg} alt="Blog Icon" iconName="Blog" />
+      </li>
+      <li>
+        <Icon
+          href={"/private"}
+          src={lockSvg}
+          alt="Lock Icon"
+          iconName="Private"
+        />
+      </li>
+    </ul>
+  </nav>
 </div>
+
+<style>
+  .nav-links {
+  }
+  .ul-links {
+    display: flex;
+    justify-content: center;
+  }
+  li {
+    list-style: none;
+  }
+</style>
