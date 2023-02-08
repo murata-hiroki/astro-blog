@@ -11,6 +11,15 @@ body {
   line-height: 1.5;
 }
 
+.dark body {
+  background-color: #0d0950;
+  color: #fff;
+}
+
+.dark .nav-links a {
+  color: #fff;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -18,6 +27,12 @@ body {
 h1 {
   margin: 1rem 0;
   font-size: 2.5rem;
+}
+
+ol,
+ul {
+  list-style: none;
+  padding: 0;
 }
 
 /* nav styles */
@@ -29,16 +44,6 @@ h1 {
   background-color: #ff9776;
   display: none;
   margin: 0;
-}
-
-.nav-links a {
-  display: block;
-  text-align: center;
-  padding: 10px 0;
-  text-decoration: none;
-  font-size: 1.2rem;
-  font-weight: bold;
-  text-transform: uppercase;
 }
 
 .nav-links a:hover,
@@ -65,16 +70,10 @@ a:focus {
 
 @media screen and (min-width: 636px) {
   .nav-links {
-    margin-left: 5em;
     display: block;
     position: static;
     width: auto;
     background: none;
-  }
-
-  .nav-links a {
-    display: inline-block;
-    padding: 15px 20px;
   }
 
   .hamburger {
