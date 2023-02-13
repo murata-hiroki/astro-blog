@@ -2,6 +2,8 @@
 import "../styles/global.css";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import ExampleChart from "../components/ExampleChart";
+import SkillList from "../components/SkillList";
+import BasicRating from "../components/SkillList";
 const pageTitle = "About Me";
 
 const identity = {
@@ -33,9 +35,36 @@ const profileImage = "src/img/profileImage.jpeg";
     font-weight: var(--fontWeight);
     text-transform: var(--textCase);
   }
+  .p-name {
+    font-size: 25px;
+    color: black;
+  }
+  .p-image {
+    width: 260px;
+    height: auto;
+    border-radius: 30px;
+  }
+  .p-bottom {
+    display: flex;
+  }
+  .p-top {
+    display: flex;
+  }
 </style>
 <BaseLayout pageTitle={pageTitle}>
-  <h1>村田拓輝</h1>
-  <img src={profileImage} alt={"profileImage"} />
-  <ExampleChart client:load />
+  <div>
+    <div class="p-top">
+      <div>
+        <img src={profileImage} alt={"profileImage"} class="p-image" />
+        <h1 class="p-name">村田拓輝</h1>
+      </div>
+      <div>
+        <p>クリエイティブサーベイ株式会社 / Devフロントエンドエンジニア</p>
+      </div>
+    </div>
+    <div class="p-bottom">
+      <ExampleChart client:load />
+      <SkillList client:load />
+    </div>
+  </div>
 </BaseLayout>
