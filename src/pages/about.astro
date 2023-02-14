@@ -1,6 +1,7 @@
 ---
 import "../styles/global.css";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import ExampleChart from "../components/ExampleChart";
 const pageTitle = "About Me";
 
 const identity = {
@@ -36,4 +37,5 @@ const profileImage = "src/img/profileImage.jpeg";
 <BaseLayout pageTitle={pageTitle}>
   <h1>村田拓輝</h1>
   <img src={profileImage} alt={"profileImage"} />
+  <ExampleChart client:load />
 </BaseLayout>
