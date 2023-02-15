@@ -1,0 +1,25 @@
+---
+console.log(process.env.PUBLIC_GIT_API_TOKEN);
+const response = await fetch("https://api.github.com/graphql", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+    Authorization: `Bearer ${process.env.PUBLIC_GIT_API_TOKEN}`,
+  },
+  body: JSON.stringify({
+    query: `
+        query {
+          viewer{
+            login
+          }
+        }
+        `,
+  }),
+});
+
+const json = await response.json();
+const gitData = json.data;
+console.log(json);
+---
+
+<h1>{gitData.viewer.login}</h1>
