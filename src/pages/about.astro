@@ -46,9 +46,13 @@ const profileImage = "src/img/profileImage.jpeg";
   }
   .p-bottom {
     display: flex;
+    margin-top: 50px;
   }
   .p-top {
     display: flex;
+  }
+  .p-text {
+    margin-bottom: 20px;
   }
 </style>
 <BaseLayout pageTitle={pageTitle}>
@@ -56,10 +60,24 @@ const profileImage = "src/img/profileImage.jpeg";
     <div class="p-top">
       <div>
         <img src={profileImage} alt={"profileImage"} class="p-image" />
+        <p>クリエイティブサーベイ株式会社 / Devフロントエンドエンジニア</p>
         <h1 class="p-name">村田拓輝</h1>
       </div>
-      <div>
-        <p>クリエイティブサーベイ株式会社 / Devフロントエンドエンジニア</p>
+      <div class="p-text-box">
+        <p class="p-text">
+          はじめまして、村田拓輝と申します。IT
+          フロントエンジニアとして、Web開発に携わっております。何か新しいことに挑戦することが得意で、これまでのキャリアでもさまざまな分野に携わってきました。
+        </p>
+        <p class="p-text">
+          2018年4月には建築会社に就職し、1年ほど勤務した後に退職し、IT業界に転身しました。その後はSES企業に入社し、銀行様のセキュリティ案件に従事しました。その後は株式会社Luminova
+          Japanに入社し、フロントエンドエンジニアとしてメディアの新規事業を担当し、開発・リリース・保守に携わりました。現在はクリエイティブサーベイ株式会社に入社し、自社プラットフォームであるアンケートシステムの開発に携わっております。
+        </p>
+        <p class="p-text">
+          最近は、最新のフロントエンド技術に興味があり、特にAstro.jsに注目しています。
+        </p>
+        <p class="p-text">
+          今後は、自身のスキルアップに加え、プロダクトマネージャーの立場でプロダクト成長を見届けられるような立場になりたいと思っております。よりよいサービスを提供し、ユーザーの利便性を高めることに貢献することを目指して、日々努力していきます。
+        </p>
       </div>
     </div>
     <div class="p-bottom">
