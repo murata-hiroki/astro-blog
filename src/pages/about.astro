@@ -1,27 +1,47 @@
 ---
+import { config } from "dotenv";
+config();
 import "../styles/global.css";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import SkillList from "../components/SkillList";
-import GitUser from "../components/GitUser.astro";
+import Chart from "../components/Chart";
 const pageTitle = "About Me";
-
-const identity = {
-  firstName: "Sarah",
-  country: "Canada",
-  occupation: "Technical Writer",
-  hobbies: ["photography", "birdwatching", "baseball"],
-};
-
-const skills = ["HTML", "CSS", "JavaScript", "React", "Astro", "Writing Docs"];
-
-const happy = true;
-const finished = true;
-const goal = 3;
 
 const skillColor = "navy";
 const fontWeight = "bold";
 const textCase = "uppercase";
 const profileImage = "src/img/profileImage.jpeg";
+
+// fetch data
+const response = await fetch("https://api.github.com/graphql", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+    Authorization: `Bearer ${process.env.PUBLIC_GIT_API_TOKEN}`,
+  },
+  body: JSON.stringify({
+    query: `query ($userName: String!) {
+  user(login: $userName) {
+    contributionsCollection {
+      contributionCalendar {
+        totalContributions
+        weeks {
+          contributionDays {
+            contributionCount
+            date
+          }
+        }
+      }
+    }
+  }
+}`,
+    variables: {
+      userName: "murata-hiroki",
+    },
+  }),
+});
+
+const data = await response.json();
 ---
 
 <style define:vars={{ skillColor, fontWeight, textCase }}>
@@ -83,7 +103,8 @@ const profileImage = "src/img/profileImage.jpeg";
       </div>
     </div>
     <div class="p-bottom">
-      <GitUser />
+      <!-- <GitUser /> -->
+      <Chart data={data} client:load />
       <SkillList client:load />
     </div>
   </div>
