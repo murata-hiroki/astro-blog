@@ -1,9 +1,8 @@
 ---
 import "../styles/global.css";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import ExampleChart from "../components/ExampleChart";
 import SkillList from "../components/SkillList";
-import BasicRating from "../components/SkillList";
+import GitUser from "../components/GitUser.astro";
 const pageTitle = "About Me";
 
 const identity = {
@@ -51,6 +50,9 @@ const profileImage = "src/img/profileImage.jpeg";
   .p-top {
     display: flex;
   }
+  .p-text-box {
+    margin-left: 80px;
+  }
   .p-text {
     margin-bottom: 20px;
   }
@@ -81,7 +83,7 @@ const profileImage = "src/img/profileImage.jpeg";
       </div>
     </div>
     <div class="p-bottom">
-      <ExampleChart client:load />
+      <GitUser />
       <SkillList client:load />
     </div>
   </div>
