@@ -5,12 +5,10 @@ import Post from "../components/Post.astro";
 import GitUser from "../components/GitUser.astro";
 const pageTitle = "Home Page";
 const allPosts = await Astro.glob("../pages/posts/*.md");
-console.log(allPosts[0].frontmatter);
 ---
 
 <BaseLayout pageTitle={pageTitle}>
   <main>
-    <GitUser/>
     <div class="post-list">
       {
         allPosts.map((post) => (

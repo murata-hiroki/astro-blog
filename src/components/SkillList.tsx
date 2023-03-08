@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Rating, Group } from "@mantine/core";
+import { Rating } from "@mantine/core";
 const skillTags = [
   {
     label: "React",
