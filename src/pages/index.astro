@@ -111,16 +111,17 @@ const allPosts = await Astro.glob("../pages/posts/*.md");
               target="_blank"
               rel="noopener"
               class="project-title-link"
-              >「学生限定SNSガクチャ」〜10万ダウンロード達成〜</a
+              >この世の可愛いが集まったECサイト「かわE」</a
             >
           </div>
           <a
             href="https://apps.apple.com/jp/app/%E3%82%AC%E3%82%AF%E3%83%81%E3%83%A3-%E5%AD%A6%E7%94%9F%E9%99%90%E5%AE%9A%E3%82%B3%E3%83%9F%E3%83%A5%E3%83%8B%E3%83%86%E3%82%A3/id1544012914"
             target="_blank"
             rel="noopener"
+            class="project-title-link"
           >
-            <div class="project-description">
-              個人で開発、運営しているアプリ。メインの機能は投稿、いいね、リツイート、リプ、グループ通話、こちゃ通話、コミュニティ作成、学生証機能、検索、メッセージ、プロフィールなど。
+            <div class="project-description-link">
+              みんなが可愛いと思う商品だけ集めたECサイト。
             </div>
           </a>
         </div>
@@ -194,5 +195,8 @@ const allPosts = await Astro.glob("../pages/posts/*.md");
     margin-top: 2px;
     font-size: 1rem;
     color: black;
+  }
+  .project-description-link {
+    text-decoration: none;
   }
 </style>
