@@ -2,52 +2,16 @@
 import "../styles/global.css";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Post from "../components/Post.astro";
+import RecommendedPosts from "../components/RecommendedPosts.astro";
 const pageTitle = "Home Page";
 const allPosts = await Astro.glob("../pages/posts/*.md");
 ---
 
 <BaseLayout pageTitle={pageTitle}>
   <main>
-    <div class="box-wrapper">
-      <div class="l-box">
-        <div class="category-wrapper">
-          <p class="category-name">React</p>
-        </div>
-        <div class="post-list">
-          {
-            allPosts.map((post) => (
-              <Post
-                title={post.frontmatter.title}
-                url={post.url}
-                date={post.frontmatter.pubDate}
-                imageUrl={post.frontmatter.image.url}
-                description={post.frontmatter.description}
-              />
-            ))
-          }
-        </div>
-      </div>
-      <div class="r-box">
-        <div class="category-wrapper">
-          <p class="category-name">Next</p>
-        </div>
-        <div class="post-list">
-          {
-            allPosts.map((post) => (
-              <Post
-                title={post.frontmatter.title}
-                url={post.url}
-                date={post.frontmatter.pubDate}
-                imageUrl={post.frontmatter.image.url}
-                description={post.frontmatter.description}
-              />
-            ))
-          }
-        </div>
-      </div>
-    </div>
+    <RecommendedPosts />
     <div class="career-history">
-      <h2>経歴</h2>
+      <h2 class="career-section-title">経歴</h2>
       <section class="career-section">
         <div class="employment-period">
           <time datetime="2022-10">2022年10月</time>
@@ -109,47 +73,21 @@ const allPosts = await Astro.glob("../pages/posts/*.md");
     margin: auto;
     padding: 1.5rem;
   }
-  .post-list {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  .box-wrapper {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  .category-wrapper {
-    text-align: center;
-    margin: 0 1% 0%;
-    background-color: gray;
-  }
-  .category-name {
-    font-size: 22px;
-    color: white;
-  }
-  .l-box {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    width: 50%;
-  }
-  .r-box {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    width: 50%;
-  }
+
   .career-section {
     display: flex;
     align-items: center;
     gap: 20px; /* 余白のサイズ */
     position: relative;
-    margin-top: 41px;
+  }
+  .career-section-title {
+    margin: 0px;
   }
   .career-section:not(:last-child)::before {
     content: "";
     display: block;
     width: 100%;
-    height: 70px;
+    height: 30px;
     border-left: 2px solid rgba(0, 0, 0, 0.24);
     position: absolute;
     left: 62px;

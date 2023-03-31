@@ -1,0 +1,79 @@
+---
+import Post from "../components/Post.astro";
+const allPosts = await Astro.glob("../pages/posts/*.md");
+---
+
+<div class="box-wrapper">
+  <div class="l-box">
+    <div class="category-wrapper">
+      <p class="category-name">React</p>
+    </div>
+    <div class="post-list">
+      {
+        allPosts
+          .filter((post) => post.frontmatter.tags.includes("React"))
+          .map((post) => (
+            <Post
+              title={post.frontmatter.title}
+              url={post.url}
+              date={post.frontmatter.pubDate}
+              imageUrl={post.frontmatter.image.url}
+              description={post.frontmatter.description}
+            />
+          ))
+      }
+    </div>
+  </div>
+  <div class="r-box">
+    <div class="category-wrapper">
+      <p class="category-name">Next</p>
+    </div>
+    <div class="post-list">
+      {
+        allPosts
+          .filter((post) => post.frontmatter.tags.includes("Next"))
+          .map((post) => (
+            <Post
+              title={post.frontmatter.title}
+              url={post.url}
+              date={post.frontmatter.pubDate}
+              imageUrl={post.frontmatter.image.url}
+              description={post.frontmatter.description}
+            />
+          ))
+      }
+    </div>
+  </div>
+</div>
+
+<style>
+  .box-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .l-box {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    width: 50%;
+  }
+  .r-box {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    width: 50%;
+  }
+  .category-wrapper {
+    text-align: center;
+    margin: 0 1% 0%;
+    background-color: gray;
+  }
+  .category-name {
+    font-size: 22px;
+    color: white;
+  }
+  .post-list {
+    display: flex;
+    flex-wrap: wrap;
+  }
+</style>

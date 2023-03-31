@@ -3,7 +3,7 @@ layout: ../../layouts/MyMarkdownPostLayout.astro
 title: "Learning About Markdown in Astro"
 description: Astro Learner
 pubDate: 2022-08-08
-tags: ["test"]
+tags: ["React", "Next"]
 image:
   url: "src/img/postImage.jpeg"
   alt: "postImage"
