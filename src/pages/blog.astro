@@ -1,30 +1,75 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import "../styles/global.css";
-import BlogPost from "../components/BlogPost.astro";
+import Post from "../components/Post.astro";
 const allPosts = await Astro.glob("../pages/posts/*.md");
 const pageTitle = "blog";
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-  <h1>
-    My Astro Learning Blog
-    <p>This is where I will post about my journey learning Astro.</p>
-
-    <p>
-      I am working through Astro's introductory tutorial. This is the second
-      page on my website, and it's the first one I built myself!
-    </p>
-    <ul>
+  <main>
+    <div class="post-list">
       {
         allPosts.map((post) => (
-          <BlogPost url={post.url} title={post.frontmatter.title} />
+          <Post
+            title={post.frontmatter.title}
+            url={post.url}
+            date={post.frontmatter.pubDate}
+            imageUrl={post.frontmatter.image.url}
+            description={post.frontmatter.description}
+          />
         ))
       }
-    </ul>
-  </h1>
-  <p>
-    This site will update as I complete more of the tutorial, so keep checking
-    back and see how my journey is going!
-  </p>
+    </div>
+  </main>
 </BaseLayout>
+
+<style>
+  main {
+    margin: auto;
+    padding: 1.5rem;
+  }
+
+  .career-section {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* 余白のサイズ */
+    position: relative;
+  }
+  .career-section-title {
+    margin: 0px;
+  }
+  .career-section:not(:last-child)::before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 30px;
+    border-left: 2px solid rgba(0, 0, 0, 0.24);
+    position: absolute;
+    left: 62px;
+    top: 60px;
+  }
+  .projects {
+    max-width: 720px;
+  }
+  .project-title {
+    font-size: 1.5rem;
+  }
+  .project-title-link {
+    color: black;
+    text-decoration: none;
+  }
+  .project-description {
+    margin-top: 2px;
+    font-size: 1rem;
+    color: black;
+  }
+  .project-description-link {
+    text-decoration: none;
+  }
+  .post-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+  }
+</style>
