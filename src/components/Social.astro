@@ -1,14 +1,47 @@
 ---
-const { platform, username } = Astro.props;
+const socialAccounts = [
+  {
+    name: "GitHub",
+    iconUrl: "src/img/icons8-github.svg",
+    linkUrl: "https://example.com",
+    color: "",
+  },
+  {
+    name: "Twitter",
+    iconUrl: "src/img/icons8-ツイッター.svg",
+    linkUrl: "https://example.com",
+    color: "",
+  },
+  {
+    name: "Instagram",
+    iconUrl: "src/img/icons8-instagram.svg",
+    linkUrl: "https://example.com",
+    color: "",
+  },
+];
 ---
 
-<a href={`https://www.${platform}.com/${username}`}>{platform}</a>
+<ul>
+  {
+    socialAccounts.map((account) => {
+      console.log(account);
+      return (
+        <li>
+          <a href={account.linkUrl}>
+            <img src={account.iconUrl} alt={account.name} />
+          </a>
+        </li>
+      );
+    })
+  }
+</ul>
 
 <style>
-  a {
-    padding: 0.5rem 1rem;
-    color: white;
-    background-color: #4c1d95;
-    text-decoration: none;
+  ul {
+    display: flex;
+    align-items: center;
+  }
+  img {
+    width: 30px;
   }
 </style>
